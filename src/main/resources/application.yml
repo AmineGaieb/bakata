@@ -1,0 +1,32 @@
+spring:
+    application:
+        name: BankAccountApp
+    jackson:
+        serialization.write_dates_as_timestamps: false
+        serialization.indent_output: true
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:h2:file:./h2db/db/bankAccountDB
+        username: bakata
+        password:
+        initialization-mode: always
+        data: classpath:data.sql
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        database: H2
+        show-sql: true
+        properties:
+            hibernate.hbm2ddl.auto: create
+            hibernate.id.new_generator_mappings: true
+            hibernate.connection.provider_disables_autocommit: true
+            hibernate.cache.use_second_level_cache: false
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: true
+        hibernate:
+            ddl-auto: none
+    h2:
+        console:
+            enabled: true
+            path: /h2-console
+
+
